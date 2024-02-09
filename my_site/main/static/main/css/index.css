@@ -3,9 +3,129 @@
   padding: 0px;
   margin: 0px;
 }
+:root {
+  --pale-peach: #f2ce94;
+  --bright-orange: #f79c16;
+  --rusty-brown: #ae5d1a;
+  --dusty-pink: #d49e91;
+  --dark-azure: #493C4;
+  --Dark-Blue: #223040;
+  --white: #f3f3f2;
+  --light-gray: #c1c3c7;
+  --gray: #94999e;
+  --black: #1c232a;
+}
 body {
   display: flex;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  flex-direction: column;
+}
+header {
+  width: 100%;
+  height: 90px;
+  background: var(--black);
+  border-bottom: 2px solid var(--gray);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 30px;
+}
+.containerAsideMain {
+  display: flex;
+}
+.defaultmain {
+  background: var(--light-gray);
+  width: 100%;
+  /* min-height: 100vh; */
+  height: 100%;
+}
+.logoText {
+  color: var(--white);
+}
+.serchWrrap {
+  display: flex;
+  column-gap: 10px;
+  align-items: center;
+}
+.serchContainer {
+  width: 600px;
+  height: 60px;
+  display: flex;
+  border-radius: 15px;
+  border: 2px solid var(--gray);
+  color: var(--light-gray);
+  align-items: center;
+  background: var(--Dark-Blue);
+  font-size: 19px;
+}
+.serchContainer input {
+  width: 100%;
+  height: 100%;
+  padding-left: 10px;
+  border-radius: 15px 0px 0px 15px;
+  font-size: 19px;
+  outline: none;
+  background: none;
+  color: var(--light-gray);
+}
+.hederCatigory {
+  height: 100%;
+  display: flax;
+  white-space: nowrap;
+  padding: 0px 10px;
+  color: var(--light-gray);
+  background: none;
+  outline: none;
+  font-size: 19px;
+}
+.hederSerchBtn {
+  width: 80px;
+  height: 100%;
+  border-radius: 0px 15px 15px 0px;
+  background: var(--bright-orange);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.hederSerchBtn img {
+  width: 50%;
+  height: 40%;
+}
+.headerBasketContainer {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  height: 40px;
+  column-gap: 20px;
+  cursor: pointer;
+}
+.iconSize {
+  width: 25px;
+  height: 25px;
+}
+.basketContainer {
+  width: 35px;
+  height: 100%;
+  background: var(--bright-orange);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.basketCount {
+  top: -8px;
+  right: -16px;
+  position: absolute;
+  padding: 5px 10px;
+  border-radius: 50px;
+  background: var(--white);
+  color: var(--black);
+}
+.checkmark {
+  width: 10px;
+  height: 10px;
 }
 .ImgAvatar {
   width: 230px;
@@ -21,9 +141,10 @@ body {
 }
 .aside {
   width: 300px;
-  height: 100vh;
-  background: rgb(41, 41, 41);
-  color: aliceblue;
+  min-height: 100vh;
+  height: max-content;
+  background: var(--black);
+  color: var(--light-gray);
   font-size: 18px;
   display: flex;
   flex-direction: column;
@@ -31,25 +152,81 @@ body {
   /* align-items: center; */
   padding: 20px;
 }
-.navigation {
+.mobilMenu {
+  display: none;
 }
-li {
-  list-style: none;
-  font-size: 22px;
-  line-height: 35px;
+.asideInput {
+  height: 45px;
+  border-radius: 15px;
+  border: none;
+  padding-left: 10px;
+  background: var(--Dark-Blue);
+  color: var(--rusty-brown);
+  font-size: 19px;
+  outline: none;
 }
-li:hover {
-  border: 1px solid silver;
-  border-radius: 3%;
+.asideInput::placeholder {
+  color: var(--rusty-brown);
+}
+.asideUl {
   cursor: pointer;
+  color: var(--gray);
+  display: flex;
+  flex-direction: column;
+  row-gap: 0px;
+  padding-left: 30px;
+  font-size: 19px;
 }
-.main {
-  width: 100%;
-  min-height: 100vh;
-  max-height: max-content;
-  position: relative;
-  color: #000;
+.asideUl li {
+  padding: 10px;
+  border-radius: 15px;
 }
-.audio {
-  margin: auto;
+.asideUl li:hover {
+  border: 1px solid var(--Dark-Blue);
+}
+@media screen and (max-width: 1023px) {
+  .headerBasketContainer {
+    display: none;
+  }
+  .mobilMenu {
+    width: 60px;
+    height: 60px;
+    display: block;
+  }
+}
+@media screen and (max-width: 899px) {
+  header {
+    height: 140px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+  }
+
+  .headerBasketContainer {
+    display: none;
+  }
+  .mobilMenu {
+    width: 45px;
+    height: 45px;
+    display: block;
+    border: 1px solid seagreen;
+    border-radius: 10px;
+    padding: 5px;
+  }
+  .serchContainer {
+    width: 280px;
+    height: 45px;
+  }
+  .hederCatigory {
+    display: none;
+  }
+  .hederSerchBtn img {
+    width: 50%;
+    height: 60%;
+  }
+  .aside {
+    display: none;
+  }
 }
